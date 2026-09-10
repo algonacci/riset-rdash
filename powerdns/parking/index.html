@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Domain siap — Orvix</title>
+  <link rel="icon" type="image/svg+xml" href="https://orvix.id/logo.svg">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      background:
+        radial-gradient(900px 420px at 50% -10%, rgba(77, 228, 255, .16), transparent 55%),
+        radial-gradient(700px 360px at 80% 110%, rgba(155, 114, 255, .14), transparent 50%),
+        #070b14;
+      color: #e8eef7;
+      text-align: center;
+      padding: 2rem 1.25rem;
+    }
+    main {
+      width: min(28rem, 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo { width: 72px; height: 72px; }
+    .brand {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      color: #4de4ff;
+    }
+    h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      word-break: break-all;
+    }
+    p {
+      color: #9fb0c8;
+      line-height: 1.6;
+      max-width: 26rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: .5rem;
+      padding: .85rem 1.4rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #4de4ff, #5b8cff);
+      color: #071018;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .cta:hover { filter: brightness(1.06); }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="orvix-cyan" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#4de4ff" />
+          <stop offset="1" stop-color="#5b8cff" />
+        </linearGradient>
+        <linearGradient id="orvix-purple" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#5b8cff" />
+          <stop offset="1" stop-color="#9b72ff" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(12 8) skewX(-12)">
+        <rect x="0" y="25" width="11" height="23" rx="3" fill="url(#orvix-cyan)" />
+        <rect x="14" y="8" width="11" height="40" rx="3" fill="url(#orvix-cyan)" />
+        <rect x="28" y="17" width="11" height="31" rx="3" fill="url(#orvix-purple)" />
+      </g>
+    </svg>
+    <div class="brand">ORVIX</div>
+    <h1 id="domain">domain</h1>
+    <p>Domain ini sudah aktif di Orvix Cloud. Kelola DNS, nameserver, dan layanan lain dari dashboard.</p>
+    <a class="cta" href="https://platform.orvix.id">Buka Platform Orvix</a>
+  </main>
+  <script>
+    const host = location.hostname.replace(/^www\./, "");
+    const isIp = /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host) || host.includes(":");
+    const label = isIp ? "Domain siap" : host;
+    document.getElementById("domain").textContent = label;
+    document.title = label + " — Orvix";
+  </script>
+</body>
+</html>
